@@ -1,0 +1,6 @@
+{
+  "name": "MyRoutine AI",
+  "description": "Aplicativo pessoal e privado para registrar, organizar e analisar rotina diária, sono, alimentação visual, cafeína, hidratação, energia e treinos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

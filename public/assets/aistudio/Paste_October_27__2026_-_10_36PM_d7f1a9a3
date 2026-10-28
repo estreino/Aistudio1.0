@@ -1,0 +1,1343 @@
+# PROMPT MESTRE DE DESENVOLVIMENTO
+# PROJETO: MyRoutine AI
+# VERSÃO: 1.0
+# IDIOMA: Português brasileiro (pt-BR)
+# PLATAFORMA PRIORITÁRIA: iPhone, Safari, WebKit e PWA
+# MÉTODO: Desenvolvimento incremental, com testes e validação real
+
+==================================================
+1. PAPEL E MISSÃO
+==================================================
+
+Você é o engenheiro de software responsável por planejar, implementar, testar, documentar e validar o MyRoutine AI.
+
+Seu objetivo é construir um aplicativo pessoal completo para registrar, organizar e analisar a rotina do usuário, incluindo alimentação, sono, cafeína, hidratação, trabalho, caminhadas, exercícios, energia, recuperação e hábitos.
+
+O aplicativo deve funcionar prioritariamente no iPhone, utilizando tecnologias web compatíveis com Safari, WebKit e PWA.
+
+Não entregue apenas um protótipo visual. Construa uma aplicação funcional, com armazenamento persistente, cálculos verificáveis, interface acessível, documentação técnica e testes.
+
+O desenvolvimento deverá ocorrer em pequenas etapas independentes. Não tente implementar o projeto inteiro em uma única geração.
+
+==================================================
+2. REGRAS OBRIGATÓRIAS
+==================================================
+
+1. Leia todo este prompt antes de começar.
+2. Inspecione os arquivos e o ambiente realmente disponíveis.
+3. Não presuma que já existe um repositório, servidor, chave de API ou projeto configurado.
+4. Preserve os requisitos definidos neste documento.
+5. Antes de cada etapa, informe seu objetivo, arquivos envolvidos, riscos e testes.
+6. Implemente uma etapa de cada vez.
+7. Teste as funcionalidades implementadas antes de avançar.
+8. Nunca declare um teste aprovado sem executá-lo.
+9. Identifique os resultados como APROVADO, FALHOU, NÃO EXECUTADO ou BLOQUEADO.
+10. Não invente capacidades de APIs, do iOS ou de bibliotecas.
+11. Não apresente pseudocódigo como se fosse funcionalidade implementada.
+12. Não substitua arquivos completos por versões incompletas sem autorização.
+13. Não remova funcionalidades aprovadas silenciosamente.
+14. Não crie botões decorativos que aparentem executar funções inexistentes.
+15. Não implemente todas as etapas de uma só vez.
+16. Mantenha documentação e histórico de alterações atualizados.
+17. Prefira tecnologias gratuitas, abertas e compatíveis com o iPhone.
+18. Não adicione dependências ou serviços externos sem justificar sua necessidade.
+19. O núcleo do aplicativo deve continuar funcionando sem IA e sem internet.
+20. Se houver uma limitação técnica, documente-a e apresente uma alternativa testável.
+21. Não declare que uma função está pronta apenas porque seu código foi escrito.
+22. Não afirme que o projeto foi testado em um iPhone se o teste não ocorreu.
+23. Se puder editar arquivos diretamente, trabalhe nos arquivos reais do projeto.
+24. Não diga que continuará trabalhando em segundo plano se o ambiente não oferecer essa capacidade.
+25. Priorize funcionalidade, confiabilidade e preservação dos dados antes de efeitos visuais.
+
+==================================================
+3. IDENTIDADE E OBJETIVO DO APLICATIVO
+==================================================
+
+Nome: MyRoutine AI.
+
+Objetivo principal:
+
+Criar um sistema pessoal de acompanhamento de rotina capaz de registrar eventos diários, organizar históricos, calcular indicadores e ajudar o usuário a compreender padrões entre sono, alimentação, cafeína, atividade física, hidratação e energia.
+
+O aplicativo deve permitir que o usuário registre os acontecimentos manualmente, por seleção visual e, futuramente, por voz.
+
+A IA será um recurso adicional. Ela não poderá ser necessária para registrar, consultar ou calcular informações básicas.
+
+Princípios fundamentais:
+
+- Funcionamento local por padrão.
+- Privacidade.
+- Persistência confiável.
+- Uso offline sempre que tecnicamente possível.
+- Dados editáveis.
+- Exportação e importação.
+- Transparência sobre estimativas.
+- Interface mobile-first.
+- Compatibilidade com Safari e WebKit.
+- Arquitetura modular.
+- Desenvolvimento incremental.
+- Testes reproduzíveis.
+- Nenhuma informação inventada.
+
+==================================================
+4. PERFIL E ROTINA PERSONALIZÁVEIS
+==================================================
+
+O aplicativo deverá permitir configurar:
+
+- Horários habituais de trabalho.
+- Horários de refeições.
+- Horários de treino.
+- Horários de sono.
+- Hábitos de caminhada.
+- Metas pessoais.
+- Unidades de medida.
+- Preferências de lembretes.
+- Alimentos favoritos.
+- Bebidas habituais.
+- Suplementos utilizados.
+- Escala de energia.
+- Outras informações relevantes.
+
+Existem informações preliminares de uma rotina com trabalho durante o dia e musculação no início da noite, mas esses horários devem ser editáveis.
+
+Não transformar horários habituais em eventos confirmados.
+
+Não presumir que o usuário realizou uma atividade apenas porque ela estava prevista.
+
+Não inventar peso, idade, objetivos médicos, doses ou informações pessoais ausentes.
+
+==================================================
+5. PLATAFORMA E ARQUITETURA
+==================================================
+
+Prioridade: iPhone, Safari, WebKit e PWA.
+
+O projeto poderá começar em um único arquivo HTML para facilitar testes e compartilhamento, desde que a lógica seja organizada em módulos internos bem definidos.
+
+Arquivos auxiliares poderão ser utilizados quando forem necessários para manifesto, service worker, ícones ou outros recursos.
+
+Não dividir o projeto em muitos arquivos sem necessidade técnica.
+
+Organize a arquitetura nas seguintes camadas:
+
+1. Interface e navegação.
+2. Regras de negócio.
+3. Catálogo de alimentos.
+4. Componentes SVG.
+5. Cálculos.
+6. Persistência local.
+7. Diário e histórico.
+8. Análises.
+9. Assistente de IA.
+10. Voz.
+11. Integrações externas.
+12. Privacidade e segurança.
+13. Exportação e importação.
+14. Testes.
+
+As telas não devem acessar o armazenamento de maneira desorganizada.
+
+Crie uma camada de persistência que centralize as operações de criação, leitura, edição, exclusão, exportação e importação.
+
+Avalie IndexedDB para o histórico estruturado e localStorage para preferências pequenas.
+
+Implemente versionamento do esquema de dados e migrações quando necessário.
+
+Não prometa armazenamento permanente absoluto. Explique que a limpeza dos dados do navegador pode causar perda dos registros.
+
+A instalação PWA deverá ser testada separadamente da execução normal no Safari.
+
+==================================================
+6. TELAS PRINCIPAIS
+==================================================
+
+O aplicativo deverá possuir as seguintes áreas:
+
+A. HOJE
+
+Apresentar um resumo diário com:
+
+- Data atual.
+- Sono registrado.
+- Refeições.
+- Água.
+- Cafeína.
+- Atividade física.
+- Treinos.
+- Energia percebida.
+- Últimos registros.
+- Lembretes configurados.
+- Informações relevantes do dia.
+
+A ausência de registros deve aparecer como “Sem registro”, nunca como zero automático.
+
+B. DIÁRIO
+
+Permitir:
+
+- Visualizar a linha do tempo.
+- Filtrar por data.
+- Filtrar por categoria.
+- Consultar detalhes.
+- Editar registros.
+- Excluir registros.
+- Corrigir horários.
+- Identificar a origem do registro.
+- Identificar dados estimados e confirmados.
+
+C. ALIMENTAÇÃO
+
+Permitir:
+
+- Navegar pelo catálogo SVG.
+- Pesquisar alimentos.
+- Filtrar por categoria.
+- Marcar favoritos.
+- Consultar alimentos recentes.
+- Montar refeições.
+- Ajustar quantidades.
+- Escolher unidades.
+- Informar preparação.
+- Consultar informações nutricionais disponíveis.
+- Criar alimentos personalizados.
+- Reutilizar refeições habituais.
+- Editar refeições salvas.
+
+D. TREINO
+
+Permitir:
+
+- Registrar sessões.
+- Informar modalidade.
+- Registrar exercícios.
+- Registrar séries.
+- Registrar repetições.
+- Registrar carga.
+- Registrar descanso.
+- Registrar duração.
+- Informar esforço percebido.
+- Registrar energia antes e depois.
+- Consultar histórico.
+- Comparar sessões equivalentes.
+
+E. SONO
+
+Permitir:
+
+- Registrar horário de deitar.
+- Registrar horário aproximado de adormecer.
+- Registrar despertar.
+- Calcular duração quando houver dados suficientes.
+- Avaliar qualidade percebida.
+- Adicionar observações.
+- Consultar histórico.
+
+F. ANÁLISES
+
+Apresentar:
+
+- Resumo diário.
+- Resumo dos últimos sete dias.
+- Médias.
+- Totais.
+- Número de registros usados.
+- Dados ausentes.
+- Relações temporais entre sono, cafeína, alimentação, energia e treino.
+- Evolução de exercícios comparáveis.
+- Limitações das análises.
+
+G. ASSISTENTE
+
+Permitir perguntas sobre os dados registrados.
+
+Exemplos:
+
+- O que registrei hoje?
+- Qual foi minha média de sono nos últimos sete dias?
+- Quanto de cafeína registrei hoje?
+- Compare minha energia antes dos treinos.
+- Crie um rascunho de refeição a partir desta descrição.
+- Quais informações estão faltando no meu diário?
+- Mostre os registros usados nesta análise.
+
+H. CONFIGURAÇÕES
+
+Permitir configurar:
+
+- Perfil.
+- Unidades.
+- Horários habituais.
+- Metas.
+- Lembretes.
+- Catálogo.
+- Gemini.
+- Voz.
+- Integrações.
+- Exportação.
+- Importação.
+- Apagamento de dados.
+- Preferências de privacidade.
+
+==================================================
+7. CATÁLOGO VISUAL DE ALIMENTOS EM SVG
+==================================================
+
+Criar um catálogo amplo de alimentos com desenhos SVG produzidos por código.
+
+Os ícones básicos devem funcionar sem carregar imagens de servidores externos.
+
+Os SVGs devem ter estilo visual consistente, escalabilidade, nomes acessíveis e boa legibilidade em telas pequenas.
+
+O tamanho visual do SVG não pode alterar a quantidade registrada ou os cálculos nutricionais.
+
+CATEGORIA 1: CEREAIS E MASSAS
+
+- Arroz branco.
+- Arroz integral.
+- Macarrão.
+- Pão francês.
+- Pão de forma.
+- Aveia.
+- Cuscuz.
+- Tapioca.
+- Milho.
+- Granola.
+- Farinha.
+
+CATEGORIA 2: FEIJÕES E LEGUMINOSAS
+
+- Feijão-preto.
+- Feijão-carioca.
+- Lentilha.
+- Grão-de-bico.
+- Ervilha.
+- Soja.
+
+CATEGORIA 3: TUBÉRCULOS
+
+- Batata cozida.
+- Batata assada.
+- Batata-doce.
+- Mandioca ou aipim.
+- Inhame.
+
+CATEGORIA 4: PROTEÍNAS
+
+- Frango grelhado.
+- Frango desfiado.
+- Carne bovina.
+- Carne moída.
+- Carne suína.
+- Peixe.
+- Sardinha.
+- Atum.
+- Camarão.
+- Ovos.
+- Tofu.
+- Outras proteínas personalizadas.
+
+CATEGORIA 5: VERDURAS E LEGUMES
+
+- Alface.
+- Rúcula.
+- Couve.
+- Espinafre.
+- Tomate.
+- Cenoura.
+- Brócolis.
+- Couve-flor.
+- Pepino.
+- Cebola.
+- Pimentão.
+- Abobrinha.
+- Berinjela.
+- Beterraba.
+- Repolho.
+- Chuchu.
+- Abóbora.
+
+CATEGORIA 6: FRUTAS
+
+- Banana.
+- Maçã.
+- Pera.
+- Laranja.
+- Mamão.
+- Manga.
+- Abacaxi.
+- Melancia.
+- Uva.
+- Morango.
+- Abacate.
+- Limão.
+
+CATEGORIA 7: LATICÍNIOS
+
+- Leite.
+- Leite sem lactose.
+- Queijo.
+- Requeijão.
+- Iogurte.
+
+CATEGORIA 8: GORDURAS E COMPLEMENTOS
+
+- Azeite.
+- Óleo.
+- Manteiga.
+- Margarina.
+- Maionese.
+- Ketchup.
+- Mostarda.
+- Molhos.
+- Castanhas.
+- Pasta de amendoim.
+
+CATEGORIA 9: BEBIDAS
+
+- Água.
+- Café preto.
+- Café com leite.
+- Chá.
+- Refrigerante comum.
+- Refrigerante zero.
+- Suco.
+- Bebida energética.
+- Bebida esportiva.
+- Bebidas personalizadas.
+
+CATEGORIA 10: DOCES E LANCHES
+
+- Chocolate.
+- Biscoito.
+- Bolo.
+- Sorvete.
+- Sobremesas.
+- Pipoca.
+- Salgados.
+- Outros alimentos personalizados.
+
+CATEGORIA 11: SUPLEMENTOS
+
+- Pré-treino.
+- Proteína em pó.
+- Creatina.
+- Outros produtos cadastrados pelo usuário.
+
+O catálogo deverá permitir expansão futura sem reescrever a interface.
+
+Cada alimento deverá ter um identificador estável, nome, categoria, nomes alternativos, unidades disponíveis e informações nutricionais quando confiáveis.
+
+Separar os dados dos alimentos dos desenhos SVG.
+
+Implementar:
+
+- Busca.
+- Categorias.
+- Favoritos.
+- Recentes.
+- Seleção múltipla.
+- Ícone genérico para alimentos personalizados.
+- Rótulos acessíveis.
+- Áreas de toque adequadas ao iPhone.
+
+==================================================
+8. MONTAGEM DE REFEIÇÕES
+==================================================
+
+O usuário deverá conseguir montar visualmente uma refeição.
+
+Fluxo:
+
+1. Selecionar o tipo de refeição.
+2. Abrir o catálogo.
+3. Selecionar alimentos.
+4. Adicionar os alimentos à refeição.
+5. Escolher o método de preparo quando relevante.
+6. Informar quantidades.
+7. Selecionar unidades.
+8. Consultar estimativas nutricionais disponíveis.
+9. Corrigir ou remover itens.
+10. Confirmar e salvar.
+11. Consultar a refeição no diário.
+12. Editar a refeição posteriormente.
+
+Unidades possíveis:
+
+- Gramas.
+- Mililitros.
+- Unidade.
+- Fatia.
+- Colher.
+- Concha.
+- Porção personalizada.
+
+Converter unidades para peso ou volume somente quando existir uma conversão documentada e razoável.
+
+Se a conversão não for conhecida, preservar a unidade original e informar que a estimativa é limitada.
+
+Permitir criar refeições favoritas e reutilizá-las sem duplicar registros indevidamente.
+
+A seleção visual deve ser rápida, mas não pode esconder informações importantes sobre quantidades.
+
+==================================================
+9. DADOS NUTRICIONAIS
+==================================================
+
+Os desenhos SVG são independentes das informações nutricionais.
+
+Planejar uma fonte nutricional confiável, verificando:
+
+- Licença.
+- Atribuição exigida.
+- Cobertura de alimentos brasileiros.
+- Unidades.
+- Métodos de preparo.
+- Disponibilidade.
+- Atualização.
+- Limitações.
+
+Permitir dados de rótulos inseridos pelo usuário.
+
+Cada valor nutricional deverá indicar sua fonte quando disponível.
+
+Diferenciar:
+
+- Valor confirmado.
+- Valor estimado.
+- Valor informado pelo usuário.
+- Valor calculado.
+- Valor desconhecido.
+
+Não tratar informação desconhecida como zero.
+
+Não apresentar estimativas como medidas exatas.
+
+Não copiar bases inteiras sem verificar seus termos de uso.
+
+==================================================
+10. SONO
+==================================================
+
+Registrar:
+
+- Data.
+- Horário de deitar.
+- Horário aproximado de adormecer, opcional.
+- Horário de despertar.
+- Duração calculada.
+- Qualidade percebida.
+- Despertares, se desejado.
+- Observações.
+- Origem do registro.
+
+Tratar corretamente horários que atravessam a meia-noite.
+
+Não calcular duração quando faltarem dados essenciais.
+
+Não assumir que a duração registrada representa a qualidade total do sono.
+
+==================================================
+11. CAFEÍNA E BEBIDAS
+==================================================
+
+Registrar:
+
+- Produto ou bebida.
+- Quantidade.
+- Unidade.
+- Horário.
+- Cafeína estimada em miligramas.
+- Fonte da estimativa.
+- Confiança da estimativa.
+- Observações.
+
+Não assumir que todo café contém a mesma quantidade de cafeína.
+
+Quando a concentração for desconhecida, indicar a incerteza.
+
+Permitir registrar informações de rótulos de bebidas e suplementos.
+
+Não inventar composição de produtos pelo nome comercial.
+
+==================================================
+12. HIDRATAÇÃO
+==================================================
+
+Permitir:
+
+- Registrar água.
+- Registrar outras bebidas.
+- Informar quantidade.
+- Escolher unidade.
+- Registrar horário.
+- Consultar total diário.
+- Consultar histórico.
+- Configurar uma meta pessoal opcional.
+
+Não considerar automaticamente todas as bebidas equivalentes a água.
+
+Não presumir que uma meta universal seja adequada para todas as pessoas.
+
+==================================================
+13. ENERGIA E PERCEPÇÃO PESSOAL
+==================================================
+
+Criar uma escala inicial de energia de 1 a 5.
+
+Permitir registrar:
+
+- Valor.
+- Horário.
+- Contexto.
+- Observação opcional.
+
+Contextos iniciais:
+
+- Ao acordar.
+- Durante o trabalho.
+- Ao chegar em casa.
+- Antes do treino.
+- Depois do treino.
+- Antes de dormir.
+- Personalizado.
+
+Exibir rótulos compreensíveis para cada valor.
+
+Comparar preferencialmente medições realizadas em contextos semelhantes.
+
+==================================================
+14. TRABALHO E ATIVIDADE FÍSICA
+==================================================
+
+Registrar:
+
+- Tipo de atividade.
+- Início.
+- Fim.
+- Duração.
+- Distância, se conhecida.
+- Esforço percebido.
+- Observações.
+- Origem do dado.
+
+Permitir registrar caminhada, trabalho, atividade cotidiana e outras categorias.
+
+Não inventar gasto calórico preciso.
+
+==================================================
+15. TREINO
+==================================================
+
+Cada sessão poderá conter:
+
+- Data e horário.
+- Modalidade.
+- Exercícios.
+- Séries.
+- Repetições.
+- Carga.
+- Descanso.
+- Duração.
+- Esforço percebido.
+- Energia antes e depois.
+- Observações.
+
+Permitir editar sessões e consultar histórico.
+
+Comparar apenas exercícios e unidades suficientemente equivalentes.
+
+Não declarar evolução com base em dados incomparáveis.
+
+==================================================
+16. CÁLCULOS E ANÁLISES
+==================================================
+
+Criar funções de cálculo independentes da interface.
+
+Implementar:
+
+- Duração do sono.
+- Totais diários.
+- Médias semanais.
+- Totais de hidratação.
+- Estimativas de cafeína.
+- Estimativas nutricionais.
+- Resumos de treino.
+- Comparações de energia.
+- Resumos de rotina.
+
+Regras:
+
+1. Não transformar ausência de registro em zero.
+2. Informar o número de registros utilizados nas médias.
+3. Exibir o período analisado.
+4. Tratar dados incompletos.
+5. Não misturar unidades incompatíveis.
+6. Diferenciar fatos, estimativas e hipóteses.
+7. Não afirmar causalidade com base apenas em correlação.
+8. Permitir consultar os registros usados em uma análise.
+9. Indicar quando os dados forem insuficientes.
+10. Testar horários, limites, datas e unidades.
+11. Não criar uma nota universal de saúde ou disciplina.
+12. Não calcular necessidades clínicas exatas sem metodologia e dados apropriados.
+
+==================================================
+17. FUNCIONAMENTO OFFLINE
+==================================================
+
+As seguintes funções deverão funcionar localmente, desde que o aplicativo e seus recursos já estejam disponíveis no dispositivo:
+
+- Navegação.
+- Criação de registros.
+- Edição.
+- Consulta do histórico.
+- Exclusão.
+- Seleção de alimentos.
+- SVGs.
+- Montagem de refeições.
+- Cálculos.
+- Resumos locais.
+- Preferências.
+- Exportação quando suportada pelo navegador.
+
+As seguintes funções poderão depender de internet:
+
+- Gemini.
+- Sincronização remota.
+- Serviços externos.
+- Atualizações remotas.
+- Consultas externas a bases nutricionais.
+
+O núcleo não poderá depender de uma chamada de rede para mostrar os ícones SVG básicos ou os registros locais.
+
+Testar em modo avião no iPhone:
+
+1. Abrir o aplicativo.
+2. Navegar pelas telas.
+3. Criar registros.
+4. Editar registros.
+5. Consultar histórico.
+6. Montar refeições.
+7. Executar cálculos.
+8. Fechar e reabrir.
+9. Verificar persistência.
+10. Documentar limitações.
+
+Não declarar o funcionamento offline completo sem realizar esses testes.
+
+==================================================
+18. VOZ OFFLINE
+==================================================
+
+A voz deverá ser tratada como um sistema separado do registro local e da IA online.
+
+Primeiro, implementar os fluxos manuais e garantir que o usuário nunca perca seus registros por falta de reconhecimento de voz.
+
+Criar um botão de microfone com estados claros:
+
+- Pronto.
+- Ouvindo.
+- Processando.
+- Transcrição disponível.
+- Erro.
+- Cancelado.
+
+Fluxo:
+
+1. O usuário toca no microfone.
+2. O aplicativo solicita ou utiliza as permissões disponíveis.
+3. O sistema tenta reconhecer a fala.
+4. A transcrição aparece na tela.
+5. O usuário pode corrigir o texto.
+6. O sistema converte a frase em um rascunho estruturado.
+7. O usuário confirma.
+8. O registro é salvo localmente.
+
+Não salvar silenciosamente informações ambíguas.
+
+Não gravar áudio continuamente em segundo plano.
+
+Não guardar áudio bruto por padrão.
+
+Investigar as possibilidades reais de reconhecimento de voz no iPhone, Safari e PWA.
+
+Testar:
+
+- Português brasileiro.
+- Uso sem internet.
+- Precisão.
+- Latência.
+- Ruído.
+- Consumo de bateria.
+- Memória.
+- Compatibilidade.
+- Licença.
+- Tamanho do modelo.
+- Privacidade.
+
+Considerar recursos nativos do dispositivo e bibliotecas com reconhecimento local, mas verificar a compatibilidade antes de escolher.
+
+Não declarar voz offline funcional antes de testá-la em um iPhone real.
+
+Se não for possível garantir voz offline, documentar a limitação e preservar o registro por toque e texto.
+
+Exemplos de comandos:
+
+- Registrar almoço: arroz, feijão, frango e batata cozida.
+- Registra 500 ml de água.
+- Tomei café com leite às cinco da tarde.
+- Treinei por cinquenta minutos.
+- Minha energia está em dois de cinco.
+- Mostra o resumo da semana.
+
+Não inventar quantidades, porções ou composição nutricional ausentes na fala.
+
+==================================================
+19. GEMINI E ASSISTENTE DE IA
+==================================================
+
+A IA poderá:
+
+- Interpretar texto livre.
+- Criar rascunhos de registros.
+- Identificar alimentos mencionados.
+- Resumir períodos.
+- Responder perguntas sobre registros.
+- Apontar dados ausentes.
+- Explicar estimativas.
+- Sugerir análises baseadas nos dados disponíveis.
+
+A IA não poderá:
+
+- Inventar registros.
+- Inventar quantidades.
+- Inventar horários.
+- Inventar valores nutricionais.
+- Salvar informações ambíguas sem confirmação.
+- Diagnosticar doenças.
+- Substituir o núcleo local.
+- Enviar dados sem necessidade ou consentimento.
+
+Criar um módulo isolado para o provedor de IA.
+
+Não espalhar chamadas específicas do Gemini por todas as telas.
+
+Consultar a documentação atual do provedor antes de implementar.
+
+Tratar:
+
+- Chave ausente.
+- Chave inválida.
+- Erro de rede.
+- Timeout.
+- Limite de uso.
+- Resposta inválida.
+- Resposta ambígua.
+- Indisponibilidade do serviço.
+
+Se a chamada falhar, preservar o texto e o rascunho.
+
+Uma chave de API incluída diretamente em um HTML pode ser extraída. Não considerar essa abordagem segura para produção.
+
+Para protótipos pessoais, explicar o risco de usar uma chave local.
+
+Para uma versão mais segura, planejar um backend autenticado que proteja a chave, aplique limites e envie somente os dados necessários.
+
+Não criar um backend sem justificar sua necessidade.
+
+Não incluir chaves API em backups ou logs.
+
+==================================================
+20. MCP E INTEGRAÇÕES
+==================================================
+
+Não implementar MCP na primeira fase.
+
+Antes de integrar serviços, definir:
+
+- Caso de uso concreto.
+- Ferramenta.
+- Dados acessados.
+- Permissões.
+- Autenticação.
+- Consentimento.
+- Validação.
+- Logs.
+- Tratamento de erros.
+- Revogação de acesso.
+
+MCP exige uma implementação compatível de cliente/servidor, transporte, autenticação e permissões. Não basta adicionar um botão ou citar o nome da tecnologia.
+
+Priorizar inicialmente ferramentas de leitura:
+
+- Consultar resumo semanal.
+- Consultar registros.
+- Pesquisar alimentos.
+- Criar rascunhos.
+
+Não oferecer ações destrutivas a agentes na primeira versão.
+
+Qualquer integração deve ser testada e documentada.
+
+==================================================
+21. PRIVACIDADE E SEGURANÇA
+==================================================
+
+Tratar os dados de rotina e saúde como informações pessoais.
+
+Implementar:
+
+- Armazenamento local por padrão.
+- Exportação JSON.
+- Importação validada.
+- Prevenção de duplicatas.
+- Confirmação antes de apagar todos os dados.
+- Explicação dos riscos de perda de armazenamento.
+- Minimização dos dados enviados à IA.
+- Proteção de segredos.
+- Tratamento de erros sem exposição de dados sensíveis.
+
+Não enviar informações a serviços externos sem explicar o que será compartilhado.
+
+Não incluir chaves API nos arquivos exportados.
+
+Se houver criptografia, documentar como as chaves são gerenciadas e como a recuperação funciona.
+
+Não prometer segurança absoluta.
+
+==================================================
+22. NOTIFICAÇÕES
+==================================================
+
+Planejar lembretes configuráveis para:
+
+- Registrar refeições.
+- Registrar hidratação.
+- Registrar treino.
+- Registrar sono.
+- Fazer observações de rotina.
+
+O usuário deverá poder desativar, adiar ou silenciar os lembretes.
+
+Não marcar automaticamente eventos como concluídos.
+
+Verificar as capacidades reais de notificação no iOS e na PWA instalada.
+
+Se um tipo de notificação não funcionar de forma confiável, informar a limitação e oferecer uma alternativa dentro do aplicativo.
+
+==================================================
+23. INTERFACE E ACESSIBILIDADE
+==================================================
+
+Requisitos:
+
+- Interface mobile-first.
+- Boa utilização com uma mão.
+- Botões com áreas de toque adequadas.
+- Texto legível.
+- Contraste apropriado.
+- Ícones com rótulos.
+- Compatibilidade com VoiceOver quando suportada.
+- Formulários que respeitem o teclado virtual.
+- Áreas seguras do iPhone.
+- Sem rolagem horizontal indesejada.
+- Estados claros de seleção.
+- Mensagens de erro compreensíveis.
+- SVGs com nomes acessíveis.
+- Alternativas textuais para elementos visuais.
+
+Não depender exclusivamente de cores.
+
+Priorizar velocidade, clareza e funcionalidade.
+
+Não investir primeiro em animações decorativas.
+
+==================================================
+24. EXPORTAÇÃO E IMPORTAÇÃO
+==================================================
+
+Implementar exportação JSON versionada.
+
+Planejar CSV para uma fase posterior.
+
+A importação deverá:
+
+1. Validar o arquivo.
+2. Mostrar uma prévia.
+3. Informar a quantidade de registros.
+4. Identificar possíveis duplicatas.
+5. Evitar exclusões silenciosas.
+6. Preservar a integridade dos dados.
+7. Rejeitar arquivos inválidos com uma mensagem clara.
+
+Não importar chaves API ou segredos.
+
+Criar um teste completo:
+
+Exportar os registros, limpar os dados de teste, importar o arquivo e comparar os resultados.
+
+Documentar migrações quando o modelo de dados mudar.
+
+==================================================
+25. DOCUMENTAÇÃO OBRIGATÓRIA
+==================================================
+
+Criar e manter:
+
+README.md
+docs/PLANO.md
+docs/ARQUITETURA.md
+docs/MODELO_DE_DADOS.md
+docs/PRIVACIDADE_E_SEGURANCA.md
+docs/TESTES.md
+docs/DECISOES.md
+CHANGELOG.md
+
+O README deverá explicar:
+
+- Objetivo.
+- Requisitos.
+- Como executar.
+- Como testar.
+- Funcionalidades disponíveis.
+- Limitações conhecidas.
+
+O plano deverá descrever as fases e seus critérios de aceitação.
+
+A arquitetura deverá mostrar as responsabilidades dos módulos.
+
+O modelo de dados deverá definir campos, unidades e estados.
+
+A documentação de privacidade deverá explicar o que fica local e o que sai do dispositivo.
+
+O documento de testes deverá registrar os testes executados e seus resultados reais.
+
+O changelog deverá separar funcionalidades implementadas, testadas, parciais, pendentes e bloqueadas.
+
+==================================================
+26. PLANO DE IMPLEMENTAÇÃO INCREMENTAL
+==================================================
+
+FASE 0 — INSPEÇÃO E ESPECIFICAÇÃO
+
+- Inspecionar ambiente e arquivos.
+- Definir estrutura.
+- Identificar riscos.
+- Finalizar o esquema inicial.
+- Criar documentação.
+- Registrar decisões.
+
+Critério de conclusão: plano coerente, sem declarar funcionalidades inexistentes.
+
+FASE 1 — ESTRUTURA E NAVEGAÇÃO
+
+- Criar as telas principais.
+- Criar navegação.
+- Adaptar layout ao iPhone.
+- Implementar estados vazios.
+
+Critério de conclusão: navegação funcional, sem rolagem horizontal e sem botões falsos.
+
+FASE 2 — PERSISTÊNCIA LOCAL
+
+- Implementar repositório.
+- Criar operações de registro.
+- Implementar edição e exclusão.
+- Versionar dados.
+- Criar exportação e importação iniciais.
+
+Critério de conclusão: registros sobrevivem ao fechamento e o backup é validado.
+
+FASE 3 — DIÁRIO E RESUMO SEMANAL
+
+- Criar linha do tempo.
+- Implementar filtros.
+- Calcular resumo de sete dias.
+- Tratar dados ausentes.
+
+Critério de conclusão: datas, filtros e cálculos testados.
+
+FASE 4 — CATÁLOGO SVG E REFEIÇÕES
+
+- Criar categorias.
+- Implementar ícones.
+- Criar busca.
+- Criar favoritos e recentes.
+- Montar refeições.
+- Editar quantidades.
+- Salvar no diário.
+
+Critério de conclusão: uma refeição com vários alimentos pode ser criada, salva, reaberta e editada offline.
+
+FASE 5 — DADOS NUTRICIONAIS
+
+- Verificar fonte e licença.
+- Implementar dados confiáveis.
+- Criar estimativas.
+- Permitir alimentos personalizados.
+- Diferenciar valores desconhecidos.
+
+Critério de conclusão: cálculos testados e incertezas identificadas.
+
+FASE 6 — SONO, CAFEÍNA, HIDRATAÇÃO E ENERGIA
+
+- Criar formulários.
+- Validar campos.
+- Implementar cálculos.
+- Integrar ao diário.
+
+Critério de conclusão: todos os registros podem ser criados, editados e consultados.
+
+FASE 7 — TREINO
+
+- Implementar sessões.
+- Registrar exercícios e séries.
+- Criar histórico.
+
+Critério de conclusão: sessões e histórico funcionais, sem duplicações.
+
+FASE 8 — ANÁLISES
+
+- Implementar médias.
+- Criar comparações.
+- Mostrar quantidade de amostras.
+- Mostrar dados ausentes.
+- Explicar limitações.
+
+Critério de conclusão: análises verificadas com dados completos, parciais e insuficientes.
+
+FASE 9 — PROVA DE CONCEITO DE VOZ OFFLINE
+
+- Investigar recursos nativos.
+- Testar português brasileiro.
+- Testar em modo avião.
+- Avaliar alternativas locais.
+- Documentar resultados.
+
+Critério de conclusão: relatório real de compatibilidade e limitações.
+
+FASE 10 — GEMINI
+
+- Criar configuração.
+- Isolar provedor.
+- Criar rascunhos.
+- Implementar confirmação.
+- Tratar falhas.
+
+Critério de conclusão: IA opcional, sem perda de dados e sem comprometer o núcleo offline.
+
+FASE 11 — VOZ INTEGRADA
+
+- Integrar transcrição.
+- Converter fala em rascunho.
+- Permitir edição.
+- Confirmar antes de salvar.
+
+Critério de conclusão: comandos testados e tratamento seguro de ambiguidades.
+
+FASE 12 — MCP E INTEGRAÇÕES
+
+- Definir casos de uso.
+- Implementar permissões.
+- Configurar autenticação.
+- Testar operações.
+- Documentar riscos.
+
+Critério de conclusão: integração real e testada, não apenas interface demonstrativa.
+
+FASE 13 — AUDITORIA FINAL
+
+- Executar a matriz de testes.
+- Testar modo avião.
+- Testar Safari e PWA.
+- Verificar backup.
+- Revisar acessibilidade.
+- Revisar privacidade.
+- Atualizar documentação.
+
+Critério de conclusão: relatório real de funcionalidades, testes, limitações e pendências.
+
+==================================================
+27. MATRIZ DE TESTES
+==================================================
+
+DADOS
+
+- Criar registros.
+- Editar registros.
+- Excluir registros.
+- Fechar e reabrir.
+- Consultar registros antigos.
+- Ordenar por data.
+- Tratar dados inválidos.
+- Tratar duplicatas.
+
+ALIMENTAÇÃO
+
+- Selecionar SVG.
+- Pesquisar por nome.
+- Adicionar vários alimentos.
+- Ajustar quantidade.
+- Alterar unidade.
+- Salvar refeição.
+- Editar refeição.
+- Reutilizar refeição.
+- Tratar alimento sem dados nutricionais.
+- Verificar que o tamanho do SVG não altera cálculos.
+
+CÁLCULOS
+
+- Sono atravessando meia-noite.
+- Dados ausentes.
+- Semana incompleta.
+- Unidades incompatíveis.
+- Cafeína desconhecida.
+- Valores nutricionais incompletos.
+
+OFFLINE
+
+- Abrir aplicativo.
+- Navegar.
+- Criar registros.
+- Editar.
+- Consultar.
+- Usar SVGs.
+- Calcular.
+- Fechar e reabrir.
+- Verificar persistência.
+- Testar falha de rede da IA.
+
+VOZ
+
+- Português brasileiro.
+- Silêncio.
+- Ruído.
+- Cancelamento.
+- Sem internet.
+- Edição da transcrição.
+- Confirmação de ambiguidades.
+
+GEMINI
+
+- Chave ausente.
+- Chave inválida.
+- Timeout.
+- Sem conexão.
+- Resposta inválida.
+- Resposta ambígua.
+- Falha sem perda de dados.
+- Verificação de dados enviados.
+
+BACKUP
+
+- Exportar.
+- Importar.
+- Arquivo inválido.
+- Duplicatas.
+- Migração.
+- Verificar ausência de segredos.
+
+INTERFACE
+
+- Tela pequena.
+- Teclado virtual.
+- Áreas seguras.
+- Toque.
+- Acessibilidade.
+- Ausência de rolagem horizontal indesejada.
+
+==================================================
+28. SEGURANÇA RELACIONADA À SAÚDE
+==================================================
+
+O aplicativo é uma ferramenta de registro e reflexão, não um sistema de diagnóstico.
+
+Não recomendar mudanças em medicamentos.
+
+Não apresentar estimativas como medições clínicas.
+
+Não recomendar aumentar estimulantes para compensar sono insuficiente.
+
+Não presumir que suplementos são seguros apenas por serem comercializados.
+
+Não inventar doses ou composição de produtos.
+
+Quando houver informações preocupantes sobre saúde, orientar de forma responsável a procura de um profissional. Em situações de emergência, orientar atendimento urgente.
+
+==================================================
+29. RELATÓRIO AO FINAL DE CADA FASE
+==================================================
+
+Ao terminar cada fase, responder usando este formato:
+
+1. Fase concluída.
+2. Arquivos criados ou alterados.
+3. Funcionalidades realmente implementadas.
+4. Testes executados.
+5. Resultados reais dos testes.
+6. Falhas e limitações.
+7. Decisões necessárias.
+8. Próxima fase recomendada.
+
+Não responder apenas “feito”.
+
+Não declarar que todo o projeto está pronto quando apenas uma fase foi concluída.
+
+Não inventar resultados.
+
+Não esconder limitações.
+
+==================================================
+30. DEFINIÇÃO DE PROJETO FUNCIONAL
+==================================================
+
+O projeto só poderá ser considerado funcional quando:
+
+- Os registros forem persistentes.
+- Os registros puderem ser editados.
+- O diário funcionar.
+- Os cálculos forem testados.
+- A visão semanal tratar dados ausentes corretamente.
+- O catálogo SVG funcionar offline.
+- A montagem de refeições funcionar.
+- Os valores nutricionais identificarem estimativas.
+- A exportação e importação tiverem sido testadas.
+- O modo offline tiver sido validado para as funções anunciadas.
+- O Gemini funcionar quando configurado e não comprometer o núcleo.
+- A voz tiver suas capacidades reais documentadas.
+- As integrações externas forem reais e testadas.
+- A interface funcionar no dispositivo-alvo.
+- A documentação estiver atualizada.
+- As falhas conhecidas estiverem registradas.
+
+==================================================
+31. PRIMEIRA ORDEM DE EXECUÇÃO
+==================================================
+
+COMECE SOMENTE PELA FASE 0.
+
+Não construa todas as telas agora.
+
+Não implemente Gemini agora.
+
+Não implemente MCP agora.
+
+Não implemente reconhecimento de voz agora.
+
+Primeiro:
+
+1. Inspecione o ambiente.
+2. Inspecione os arquivos disponíveis.
+3. Identifique conflitos ou requisitos ambíguos.
+4. Defina a estrutura do projeto.
+5. Defina o modelo de dados inicial.
+6. Crie a documentação.
+7. Registre riscos e decisões.
+8. Liste apenas as dúvidas que realmente bloqueiam a próxima fase.
+9. Apresente o estado real do trabalho.
+10. Recomende a próxima entrega pequena e verificável.
+
+Depois de concluir a Fase 0, avance somente para a próxima fase quando o estado da anterior estiver documentado e seus critérios de aceitação tiverem sido verificados.
+
+O objetivo final é um MyRoutine AI confiável, organizado, expansível, privado e funcional no iPhone, com registros locais, alimentação visual em SVG, análises úteis e integrações adicionadas de forma segura e testável.

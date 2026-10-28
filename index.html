@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Tratamento preventivo de WebSocket/HMR desconectado em sandbox iFrame do AI Studio
+      window.addEventListener('unhandledrejection', function(event) {
+        var reason = event.reason;
+        var msg = (reason && (reason.message || (typeof reason === 'string' ? reason : ''))) || '';
+        if (msg.includes('WebSocket') || msg.includes('vite:ws')) {
+          event.preventDefault();
+        }
+      });
+      window.addEventListener('error', function(event) {
+        if (event.filename && event.filename.includes('@vite/client')) {
+          event.preventDefault();
+        }
+      });
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+    <title>MyRoutine AI - Acompanhamento Pessoal e Privado</title>
+    <meta name="description" content="Aplicativo pessoal e privado para registrar, organizar e analisar rotina diária, sono, alimentação visual, cafeína, hidratação, energia e treinos." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#090a0f" />
+    <meta property="og:title" content="MyRoutine AI - Acompanhamento Pessoal e Privado" />
+    <meta property="og:description" content="Aplicativo pessoal e privado para registrar, organizar e analisar rotina diária, sono, alimentação visual, cafeína, hidratação, energia e treinos." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
